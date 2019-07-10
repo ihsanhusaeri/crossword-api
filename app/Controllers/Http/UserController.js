@@ -16,31 +16,14 @@ class UserController {
         return response.status(201).json(user)
     }
     async show ({params, response}) {
-        // const user = await User.find(params.id)
-        // if (!user) {
-        //     return response.status(404).json({data: 'Resource not found'})
-        //     }
-        // return response.json(user)
+        const user = await User.find(params.id)
+        if (!user) {
+            return response.status(404).json({data: 'Resource not found'})
+            }
+        return response.json(user)
         
         
-        /*GET USER, CROSSWORD AND USER_CROSSWORD BY USER_ID*/
-
-
-        const userCrossword = await User.query().where('id', params.id).with('crosswords').fetch()
-        if(!userCrossword){
-            return response.status(404).json({user:'User tidak ditemukan'})
-        }else{
-            return response.status(201).json({user: userCrossword})
-        }
-
-        /* GET CROSSWORD AND USER_CROSSWORD BY USER_ID*/
-
-        // const user = await User.find(params.id)
-        // const userCrossword = await user.crosswords().fetch()
-
-        // return{
-        //     userCrossword: userCrossword
-        // }
+        
         
     }
 
