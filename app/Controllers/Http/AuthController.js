@@ -1,5 +1,5 @@
 'use strict'
-
+ const Answer = use('App/')
 class AuthController {
     async postLoginJwt({ request, auth }) {
         const { email, password } = request.all()
