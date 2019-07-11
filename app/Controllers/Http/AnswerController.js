@@ -30,23 +30,23 @@ class AnswerController {
         /* GET USER, ANSWER AND USER_ANSWER BY USER_ID*/
         try{
             // const answers = await Answer.query().where('id', params.id).with('users').fetch()
-            const answers = await Answer.query().where('id', params.id).fetch()
-            return response.status(201).json({answers})
+            const answers = await Answer.query().where('crossword_id', params.crosswordId).fetch()
+            return response.status(201).json({data:answers})
 
         }catch(error){
             return response.status(401).json({error})
         }
     }
-    async showByCrossword({params, request, response}){
-        try{
-            // const answers = await Answer.query().where('id', params.id).with('users').fetch()
-            const answers = await Answer.query().where('crossword_id', params.id).fetch()
-            return response.status(201).json({answers})
+    // async showByCrossword({params, request, response}){
+    //     try{
+    //         // const answers = await Answer.query().where('id', params.id).with('users').fetch()
+    //         const answers = await Answer.query().where('crossword_id', params.id).fetch()
+    //         return response.status(201).json({answers})
 
-        }catch(error){
-            return response.status(401).json({error})
-        }
-    }
+    //     }catch(error){
+    //         return response.status(401).json({error})
+    //     }
+    // }
 }
 
 module.exports = AnswerController

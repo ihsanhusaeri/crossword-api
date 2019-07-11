@@ -1,5 +1,7 @@
 'use strict'
 const User = use('App/Models/User')
+const Answer = use('App/Models/Answer')
+const Crossword = use('App/Models/Crossword')
 class UserController {
     async index ({response}) {
         let users = await User.all()
@@ -7,12 +9,20 @@ class UserController {
         
     }
     async store ({request, response}) {
+        const answers = await Answer.all()
+        const crosswords = await Crossword.all()
+
         const userInfo = request.only(['username', 'email', 'password'])
         const user = new User()
         user.username = userInfo.username
         user.email = userInfo.email
         user.password = userInfo.password
         await user.save()
+
+        console.log(answers)
+        console.log(crosswords)
+        // await user.answers().attach('')
+
         return response.status(201).json(user)
     }
     async show ({params, response}) {

@@ -28,10 +28,12 @@ Route.group(()=>{
   Route.delete('users/:id', 'UserController.delete').middleware(['auth:jwt'])
   // Route.get('answers', 'AnswerController.index').middleware(['auth:jwt'])
   Route.get('answers', 'AnswerController.index')
-  Route.get('answers/:id', 'AnswerController.show')
+  Route.get('answers/:crosswordId', 'AnswerController.show')
   Route.get('answers/crossword/:id', 'AnswerController.showByCrossword')
-  Route.get('users_crossword', 'UserCrosswordController.index').middleware(['auth:jwt'])
+  Route.get('users_crossword', 'UserCrosswordController.index')
   Route.get('users_answer/:id', 'UserAnswerController.show')
+  Route.patch('user_answer/update', 'UserAnswerController.update')
+  Route.patch('user_crossword/update', 'UserCrosswordController.update')
 }).prefix('api/')
 
 
