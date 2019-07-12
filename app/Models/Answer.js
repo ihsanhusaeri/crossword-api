@@ -8,7 +8,7 @@ class Answer extends Model {
         return this.belongsTo('App/Models/Crossword')
     }
     users(){
-        return this.belongsToMany('App/Models/User').pivotTable('users_answers')
+        return this.belongsToMany('App/Models/User').pivotTable('users_answers').withPivot('id')
     }
 }
 

@@ -12,6 +12,9 @@ class UserController {
         const answers = await Answer.all()
         const crosswords = await Crossword.all()
 
+        console.log(crosswords)
+        console.log(answers)
+
         const userInfo = request.only(['username', 'email', 'password'])
         const user = new User()
         user.username = userInfo.username
@@ -19,8 +22,6 @@ class UserController {
         user.password = userInfo.password
         await user.save()
 
-        console.log(answers)
-        console.log(crosswords)
         // await user.answers().attach('')
 
         return response.status(201).json(user)

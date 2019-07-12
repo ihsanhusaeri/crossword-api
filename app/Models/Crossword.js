@@ -8,7 +8,7 @@ class Crossword extends Model {
         return this.hasMany('App/Models/Answer')
     }
     users(){
-        return this.belongsToMany('App/Models/User').pivotTable('users_crosswords').withPivot('is_finished')
+        return this.belongsToMany('App/Models/User').pivotTable('users_crosswords').withPivot('id','is_finished')
     }
 }
 
