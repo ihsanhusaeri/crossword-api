@@ -38,7 +38,7 @@ class User extends Model {
     return this.belongsToMany('App/Models/Answer').pivotTable('users_answers').withPivot('answer')
   }
   crosswords(){
-    return this.belongsToMany('App/Models/Crossword').pivotTable('users_crosswords').withPivot('is_finished')
+    return this.belongsToMany('App/Models/Crossword').pivotTable('users_crosswords').withPivot('is_finished').withPivot('id')
   }
 }
 
