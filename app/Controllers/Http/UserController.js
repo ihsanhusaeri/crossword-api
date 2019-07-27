@@ -9,11 +9,11 @@ class UserController {
         
     }
     async store ({request, response}) {
-        const answers = await Answer.all()
-        const crosswords = await Crossword.all()
+        // const answers = await Answer.all()
+        // const crosswords = await Crossword.all()
 
-        console.log(crosswords)
-        console.log(answers)
+        // console.log(crosswords)
+        // console.log(answers)
 
         const userInfo = request.only(['username', 'email', 'password'])
         const user = new User()
