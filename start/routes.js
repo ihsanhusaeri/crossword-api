@@ -29,12 +29,12 @@ Route.group(()=>{
   // Route.get('answers', 'AnswerController.index').middleware(['auth:jwt'])
 
   Route.get('crosswords', 'CrosswordController.index').middleware(['auth:jwt'])
-  Route.get('answers', 'AnswerController.index')
-  Route.get('answers/:crosswordId', 'AnswerController.show')
+  Route.get('answers', 'AnswerController.index').middleware(['auth:jwt'])
+  Route.get('answers/:crosswordId', 'AnswerController.show').middleware(['auth:jwt'])
   // Route.get('answers/:id', 'AnswerController.show')
-  Route.get('users_crossword', 'UserCrosswordController.index')
-  Route.patch('user_answer/update', 'UserAnswerController.update')
-  Route.patch('user_crossword/update', 'UserCrosswordController.update')
+  Route.get('users_crossword', 'UserCrosswordController.index').middleware(['auth:jwt'])
+  Route.patch('user_answer/update', 'UserAnswerController.update').middleware(['auth:jwt'])
+  Route.patch('user_crossword/update', 'UserCrosswordController.update').middleware(['auth:jwt'])
 }).prefix('api/')
 
 
